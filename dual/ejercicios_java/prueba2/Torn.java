@@ -17,6 +17,8 @@ public class Torn {
         return var;
     }
 
+    // No hecho
+
     public static int getTorn(Client cli) {
         return torn;
     }
@@ -25,7 +27,7 @@ public class Torn {
         return cua.size();
     }
 
-    public String getClients() {
+    public static String getClients() {
         String llistat = "";
         
         for(int i = 0; i < cua.size(); i++){
@@ -37,8 +39,8 @@ public class Torn {
 
     // Setters
 
-    public void setTorn(final int nouTorn) {
-        this.torn = nouTorn;
+    public static void setTorn(final int nouTorn) {
+        torn = nouTorn;
     }
 
     // Methods
@@ -50,9 +52,9 @@ public class Torn {
         return torn;
     }
 
-    public void assignarTorn(Client cli, int torn) {
+    public static void assignarTorn(Client cli) {
 
-        this.setTorn(torn);
+        setTorn(torn);
         cua.add(cli);
     }
 }

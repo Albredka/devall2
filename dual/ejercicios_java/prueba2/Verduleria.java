@@ -28,5 +28,8 @@ public class Verduleria {
         System.out.println(Torn.getTorn(client5));
         System.out.println(Torn.getNumero(client1));
 
+        System.out.println(Torn.getClients());
+        
+
     } 
 }
