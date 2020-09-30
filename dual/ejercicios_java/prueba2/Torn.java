@@ -2,40 +2,58 @@ import java.util.ArrayList;
 
 public class Torn {
     
-    protected int numero;
-    protected String torn;
-    ArrayList <Torn> cua = new ArrayList<Torn>();
+    protected static int torn;
+    protected static ArrayList <Client> cua = new ArrayList<Client>();
 
     // Getters
 
-    public int getNumero() {
-        return numero;
-
+    public static int getNumero(Client cli) {
+        int var = cua.indexOf(cli) +1;
+        
+        if (var == -1){
+            System.out.println("No es troba en la cua");
+            return var;
+        }
+        return var;
     }
 
-    public String getTorn() {
+    public static int getTorn(Client cli) {
         return torn;
+    }
 
+    public static int getCua() {
+        return cua.size();
+    }
+
+    public String getClients() {
+        String llistat = "";
+        
+        for(int i = 0; i < cua.size(); i++){
+            llistat = llistat + (cua.get(i)).toString() + "\n";
+        }
+
+        return llistat;
     }
 
     // Setters
 
-    public void setNumero(final int nouNumero) {
-        this.numero = nouNumero;
-    }
-
-    public void setTorn(final String nouTorn) {
+    public void setTorn(final int nouTorn) {
         this.torn = nouTorn;
     }
 
     // Methods
-
-    public void generaTorn(){
-        
+ 
+    public int generaTorn() {
+        for(int i = 0; i < 1000000; i++) {
+            torn = i;
+        }
+        return torn;
     }
 
-    public void assignarTorn(){
+    public void assignarTorn(Client cli, int torn) {
 
+        this.setTorn(torn);
+        cua.add(cli);
     }
-}  
+}
 

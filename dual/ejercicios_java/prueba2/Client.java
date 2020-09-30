@@ -6,6 +6,7 @@ public class Client {
     protected String DNI;
     protected String direccio;
     protected String telefon;
+    protected int torn;
 
     ArrayList <Client> clients = new ArrayList<Client>();
 
