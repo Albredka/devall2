@@ -1,4 +1,6 @@
+
 import java.util.ArrayList;
+
 
 public class Torn {
     
@@ -20,7 +22,8 @@ public class Torn {
     // No hecho
 
     public static int getTorn(Client cli) {
-        return torn;
+
+         return cli.torn;
     }
 
     public static int getCua() {
@@ -39,23 +42,25 @@ public class Torn {
 
     // Setters
 
-    public static void setTorn(final int nouTorn) {
-        torn = nouTorn;
+    public static void setTorn(Client cli) {
+        cli.torn = getCua();
     }
 
     // Methods
- 
-    public int generaTorn() {
-        for(int i = 0; i < 1000000; i++) {
-            torn = i;
-        }
-        return torn;
-    }
 
     public static void assignarTorn(Client cli) {
 
-        setTorn(torn);
+        setTorn(Torn.torn);
         cua.add(cli);
     }
+
+    public static void eliminaTorn(){
+        cua.remove(0);
+    }
+
+    public static void eliminaTorn(Client cli){
+        cua.remove(cli);
+    }
+
 }
 

@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Verduleria {
     public static void main(final String[] args) {
@@ -11,8 +10,8 @@ public class Verduleria {
         Client client7 = new Client("Montse", "55373381M", "Badebarre 888", "607928492");
         Client client8 = new Client("Sergio", "90123847A", "Selecanta 186", "607928492");
         
-        System.out.println(Torn.getCua());
-        System.out.println(Torn.getNumero(client1));
+        //System.out.println(Torn.getCua());
+        //System.out.println(Torn.getNumero(client1));
 
         Torn.assignarTorn(client1);
         Torn.assignarTorn(client2);
@@ -26,10 +25,21 @@ public class Verduleria {
         System.out.println(Torn.getCua());
 
         System.out.println(Torn.getTorn(client5));
-        System.out.println(Torn.getNumero(client1));
+        System.out.println(Torn.getNumero(client5));
 
-        System.out.println(Torn.getClients());
+        Torn.eliminaTorn();
+
+        System.out.println("--------------------------------");
+
+        System.out.println(Torn.getTorn(client5));
+        System.out.println(Torn.getNumero(client5));
+
+
+
+        //System.out.println(Torn.getClients());
+
+
         
 
-    } 
+    }
 }
