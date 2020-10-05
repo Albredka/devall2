@@ -24,19 +24,39 @@ public class Verduleria {
 
         System.out.println(Torn.getCua());
 
-        System.out.println(Torn.getTorn(client5));
-        System.out.println(Torn.getNumero(client5));
+        System.out.println(Torn.getTorn(client6));
+        System.out.println(Torn.getNumero(client6));
+
+        System.out.println(Torn.seguentClient());
 
         Torn.eliminaTorn();
 
-        System.out.println("--------------------------------");
+        System.out.println("\n--------------------------------\n");
 
-        System.out.println(Torn.getTorn(client5));
-        System.out.println(Torn.getNumero(client5));
+        System.out.println(Torn.getCua());
+
+        System.out.println(Torn.getTorn(client6));
+        System.out.println(Torn.getNumero(client6));
+
+        Torn.eliminaTorn();
+
+        System.out.println(Torn.seguentClient());
+
+        System.out.println("\n--------------------------------\n");
+
+        System.out.println(Torn.getCua());
+        System.out.println(Torn.getTorn(client6));
+        System.out.println(Torn.getNumero(client6));
+
+        Torn.eliminaTorn();
+
+        System.out.println(Torn.seguentClient());
 
 
 
-        //System.out.println(Torn.getClients());
+
+
+
 
 
         

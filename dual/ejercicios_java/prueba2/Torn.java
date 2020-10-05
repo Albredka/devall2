@@ -4,26 +4,17 @@ import java.util.ArrayList;
 
 public class Torn {
     
-    protected static int torn;
     protected static ArrayList <Client> cua = new ArrayList<Client>();
 
     // Getters
 
     public static int getNumero(Client cli) {
-        int var = cua.indexOf(cli) +1;
-        
-        if (var == -1){
-            System.out.println("No es troba en la cua");
-            return var;
-        }
-        return var;
+        return cli.numero;
     }
 
-    // No hecho
-
     public static int getTorn(Client cli) {
-
-         return cli.torn;
+        setTorn(cli);
+        return cli.torn;
     }
 
     public static int getCua() {
@@ -43,14 +34,20 @@ public class Torn {
     // Setters
 
     public static void setTorn(Client cli) {
-        cli.torn = getCua();
+        
+        cli.torn = cua.indexOf(cli); 
+    }
+
+    public static void setNumero(Client cli){
+        cli.numero = cua.size()+1;
     }
 
     // Methods
 
     public static void assignarTorn(Client cli) {
 
-        setTorn(Torn.torn);
+        setTorn(cli);
+        setNumero(cli);
         cua.add(cli);
     }
 
@@ -60,6 +57,11 @@ public class Torn {
 
     public static void eliminaTorn(Client cli){
         cua.remove(cli);
+    }
+
+    public static String seguentClient(){
+        
+        return cua.get(0).nom;
     }
 
 }

@@ -8,8 +8,7 @@ public class Client {
     protected String direccio;
     protected String telefon;
     protected int torn;
-
-    ArrayList <Client> clients = new ArrayList<Client>();
+    protected int numero;
 
     public Client(String nom, String DNI, String direccio, String telefon){
         this.nom= nom;
@@ -61,6 +60,5 @@ public class Client {
         this.telefon = nouTelefon;
 
     }
-
 }
 
