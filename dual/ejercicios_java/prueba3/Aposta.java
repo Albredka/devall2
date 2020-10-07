@@ -5,7 +5,7 @@ public class Aposta {
         protected int golsVisitants;
 
         // Constructor
-        public aposta(String dni, int golsLocals, int golsVisitants){
+        public Aposta(String dni, int golsLocals, int golsVisitants){
             this.dni = dni;
             this.golsLocals = golsLocals;
             this.golsVisitants = golsVisitants;
@@ -14,22 +14,22 @@ public class Aposta {
 
         // Getters
 
-        public static String getDni(Apostes aposta) {
+        public static String getDni(Aposta aposta) {
             return aposta.dni;
         }
 
-        public static String getGolsLocals(Apostes aposta) {
+        public static int getGolsLocals(Aposta aposta) {
             return aposta.golsLocals;
         }
 
-        public static String getGolsVisitants(Apostes aposta) {
+        public static int getGolsVisitants(Aposta aposta) {
             return aposta.golsVisitants;
         }
 
 
         // Metodes
 
-        public static void afegirAposta(Apostes aposta) {
+        public static void afegirAposta(Aposta aposta) {
             Porres.porra.add(aposta);
 
         }
