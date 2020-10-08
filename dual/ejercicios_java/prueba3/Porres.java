@@ -2,23 +2,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import org.graalvm.compiler.hotspot.replacements.HashCodeSnippets;
 
 public class Porres {
 
     static HashSet <Aposta> porra = new HashSet<Aposta>();
     static Iterator <Aposta> iterator = porra.iterator();
  
-    // HashCode method
-
-    @Override
-    public int hashCode(){
-
-        final int a = this.golsLocals * 1000;
-        final int b = this.golsVisitants + 20;
-
-        return a+b;
-    }
 
     public static void main(String args[]){
 
@@ -42,6 +31,28 @@ public class Porres {
         Aposta aposta18 = new Aposta("10614177E", 4, 3);
         Aposta aposta19 = new Aposta("90314465C", 4, 4);
 
-        HashCode(aposta1);
+        porra.add(aposta1);
+        porra.add(aposta2);
+        porra.add(aposta3);
+        porra.add(aposta4);
+        porra.add(aposta5);
+        porra.add(aposta6);
+        porra.add(aposta7);
+        porra.add(aposta8);
+        porra.add(aposta9);
+        porra.add(aposta10);
+        porra.add(aposta11);
+        porra.add(aposta12);
+        porra.add(aposta13);
+        porra.add(aposta14);
+        porra.add(aposta15);
+        porra.add(aposta16);
+        porra.add(aposta17);
+        porra.add(aposta18);
+        porra.add(aposta19);
+
+        System.out.println(porra);
+        
+        
     }
 }
