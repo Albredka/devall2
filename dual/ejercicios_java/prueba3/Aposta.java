@@ -1,3 +1,5 @@
+
+
 public class Aposta {
 
         protected String dni;
@@ -16,13 +18,28 @@ public class Aposta {
         //HashCode method
 
         @Override
-        public int hashCode(){
+        public int hashCode() {
 
             final int A = this.golsLocals * 1000;
             final int B = this.golsVisitants + 20;
 
             this.id = A+B;
             return this.id;
+        }
+
+        
+        @Override
+        public boolean equals(Object obj){
+
+            Aposta aposta2 = (Aposta) obj;
+
+            if(this.hashCode()==aposta2.hashCode()){
+                return true;
+
+            } else {
+                return false;
+            }
+
         }
 
         

@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+
+
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -7,6 +8,7 @@ public class Porres {
 
     static HashSet <Aposta> porra = new HashSet<Aposta>();
     static Iterator <Aposta> iterator = porra.iterator();
+    
  
 
     public static void main(String args[]){
@@ -51,8 +53,14 @@ public class Porres {
         porra.add(aposta18);
         porra.add(aposta19);
 
-        System.out.println(porra);
-        
+        int contador = 0;
+        for (Aposta aposta : porra){
+            contador += 1;
+
+            System.out.println(contador + ". " + aposta.dni + " " + aposta.golsLocals + " " + aposta.golsVisitants);
+        }
+
+        //System.out.println(porra);
         
     }
 }
