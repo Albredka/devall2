@@ -7,19 +7,31 @@ import java.util.Iterator;
 public class Porres {
 
     static HashSet <Aposta> porra = new HashSet<Aposta>();
-    static Iterator <Aposta> iterator = porra.iterator();
-
-    
 
     public static void porres(){
 
-        int contador = 0;
+        Iterator <Aposta> iterator = porra.iterator();
 
-        for (Aposta aposta : porra){
-            contador += 1;
+        System.out.println("");
+        System.out.println("Llista de porres");
+        System.out.println("-----------------");
 
-            System.out.println(contador + ". " + aposta.dni + " " + aposta.golsLocals + " " + aposta.golsVisitants);
+        while(iterator.hasNext()){
+
+            Aposta aposta = iterator.next();
+            
+            System.out.println(iterator.next().toString());
         }
+
+        System.out.println("-----------------");
+
+        // int contador = 0;
+
+        // for (Aposta aposta : porra){
+        //     contador += 1;
+
+        //     System.out.println(contador + ". " + aposta.dni + " " + aposta.golsLocals + " " + aposta.golsVisitants);
+        // }
     }
     
  
@@ -31,8 +43,8 @@ public class Porres {
         Aposta aposta3 = new Aposta("55372615T", 1, 3);
         Aposta aposta4 = new Aposta("39467020D", 1, 4);
         Aposta aposta5 = new Aposta("22678352F", 1, 5);
-        Aposta aposta6 = new Aposta("50863156J", 2, 1);
-        Aposta aposta7 = new Aposta("73114980G", 2, 1);
+        Aposta aposta6 = new Aposta("50863156J", 2, 1); // repetida
+        Aposta aposta7 = new Aposta("73114980G", 2, 1); // repetida
         Aposta aposta8 = new Aposta("15487718R", 2, 2);
         Aposta aposta9 = new Aposta("46168956K", 2, 3);
         Aposta aposta10 = new Aposta("09650772H", 3, 2); // repetida

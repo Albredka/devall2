@@ -42,6 +42,12 @@ public class Aposta {
 
         }
 
+        @Override
+        public  String toString(){
+
+            return this.dni + " " + this.golsLocals + " " + this.golsVisitants;
+        }
+
         
         // public boolean equals(Aposta aposta){
         //     if(aposta.id == this.id){

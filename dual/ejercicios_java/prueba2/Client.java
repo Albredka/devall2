@@ -19,7 +19,7 @@ public class Client {
 
     @Override
     public String toString(){
-        return "[dni = " + DNI + ", nom = " + nom + ", direccio = " + direccio + ", " + "telefon = " + String.valueOf(telefon) + "]";
+        return "[dni = " + this.DNI + ", nom = " + this.nom + ", direccio = " + this.direccio + ", " + "telefon = " + String.valueOf(this.telefon) + "]";
     }
 
     // Getters
