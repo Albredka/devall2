@@ -44,7 +44,7 @@ public class Porres implements Comparable <Porres>{
 
     @Override
     public int compareTo(Aposta aposta) {
-        int golsLocals = this.golsLocals;
+        int golsLocals = this.golsLocals
 
         if(this.equals(aposta)){
             return 0;
