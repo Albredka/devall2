@@ -2,10 +2,10 @@
 
 public class Aposta {
 
-        protected String dni;
-        protected int golsLocals;
-        protected int golsVisitants;
-        protected int id;
+        private String dni;
+        private int golsLocals;
+        private int golsVisitants;
+        private int id;
 
         // Constructor
         public Aposta(String dni, int golsLocals, int golsVisitants){
@@ -59,16 +59,16 @@ public class Aposta {
 
         // Getters
 
-        public static String getDni(Aposta aposta) {
-            return aposta.dni;
+        public String getDni() {
+            return this.dni;
         }
 
-        public static int getGolsLocals(Aposta aposta) {
-            return aposta.golsLocals;
+        public int getGolsLocals() {
+            return this.golsLocals;
         }
 
-        public static int getGolsVisitants(Aposta aposta) {
-            return aposta.golsVisitants;
+        public int getGolsVisitants() {
+            return this.golsVisitants;
         }
 
 

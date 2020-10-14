@@ -2,9 +2,10 @@
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.TreeSet;
 
 
-public class Porres {
+public class Porres implements Comparable <Porres>{
 
     static HashSet <Aposta> porra = new HashSet<Aposta>();
 
@@ -20,7 +21,7 @@ public class Porres {
 
             Aposta aposta = iterator.next();
             
-            System.out.println(iterator.next().toString());
+            System.out.println(aposta.toString());
         }
 
         System.out.println("-----------------");
@@ -33,8 +34,34 @@ public class Porres {
         //     System.out.println(contador + ". " + aposta.dni + " " + aposta.golsLocals + " " + aposta.golsVisitants);
         // }
     }
-    
- 
+
+    public String ordenaPorres(){
+        TreeSet<Aposta> apostesOrdenades = new TreeSet<Aposta>();
+
+        return "hola";
+
+    }
+
+    @Override
+    public int compareTo(Aposta aposta) {
+        int golsLocals = this.golsLocals;
+
+        if(this.equals(aposta)){
+            return 0;
+        } else {
+            if(this.golsLocals == aposta.getGolsLocals()){
+                if(this.getGolsVisitants() > aposta.getGolsVisitants()){
+                    return 1;
+                } else { 
+                    return -1;
+                }
+            } else if(this.getGolsLocals() > aposta.getGolsLocals()){
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+    }
 
     public static void main(String args[]){
 
@@ -84,4 +111,6 @@ public class Porres {
         //System.out.println(porra);
         
     }
+
+    
 }
