@@ -1,11 +1,10 @@
 
+public class Aposta implements Comparable<Aposta> {
 
-public class Aposta {
-
-        private String dni;
-        private int golsLocals;
-        private int golsVisitants;
-        private int id;
+        protected String dni;
+        protected int golsLocals;
+        protected int golsVisitants;
+        protected int id;
 
         // Constructor
         public Aposta(String dni, int golsLocals, int golsVisitants){
@@ -26,7 +25,6 @@ public class Aposta {
             this.id = A+B;
             return this.id;
         }
-
         
         @Override
         public boolean equals(Object obj){
@@ -39,13 +37,32 @@ public class Aposta {
             } else {
                 return false;
             }
-
         }
 
         @Override
         public  String toString(){
 
             return this.dni + " " + this.golsLocals + " " + this.golsVisitants;
+        }
+
+        @Override
+        public int compareTo(Aposta aposta) {
+
+            if(this.equals(aposta)){
+                return 0;
+            } else {
+                if(this.golsLocals == aposta.getGolsLocals()){
+                    if(this.getGolsVisitants() > aposta.getGolsVisitants()){
+                        return -1;
+                    } else { 
+                        return -1;
+                    }
+                } else if(this.getGolsLocals() > aposta.getGolsLocals()){
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
         }
 
         
@@ -76,6 +93,5 @@ public class Aposta {
 
         public static void afegirAposta(Aposta aposta) {
             Porres.porra.add(aposta);
-
         }
     }
