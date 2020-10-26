@@ -103,7 +103,7 @@ public class Hora implements Comparable <Hora> {
 
 
     public static void main(String[] args) {
-        System.out.println(toString("La hora de la tarda es:"));
+        
     }
 
     
