@@ -1,10 +1,10 @@
-package prueba4;
+
 
 public class Hora implements Comparable <Hora> {
     
-    private static int hora;
-    private static int minut;
-    private static int segon;
+    private int hora;
+    private int minut;
+    private int segon;
 
 
     // Constructors
@@ -60,8 +60,11 @@ public class Hora implements Comparable <Hora> {
 
     @Override
     public String toString() {
-        return "{" + " hora='" + getHora() + "'" + ", minut='" + getMinut() + "'" + ", segon='" + getSegon() + "'"
-                + "}";
+
+        String missatge = String.format("'%d:%02d:%02d%n'", getHora(), getMinut(), getSegon());
+        
+        return missatge;
+        
     }
 
     @Override
@@ -73,39 +76,125 @@ public class Hora implements Comparable <Hora> {
     // Overloads
 
    
-    public static String toString(String inicial) {
-        return "{" + inicial + 
-            " hora= " + hora +
-            ", minut= " + minut + "'" +
-            ", segon= " + segon + "''" +
-            "}";
+    public String toString(String inicial) {
+
+        String missatge = String.format("'%d:%02d:%02d%n'", hora, minut, segon);
+        
+        return missatge;
     }
 
-    public void decrementa(int hora){
-
+    public void decrementa(int segons){
+        int[] horaX = ajustaDecrement(this.hora, this.minut, this.segon-segons);
+        
+        setHora(horaX[0]);
+        setMinut(horaX[1]);
+        setSegon(horaX[2]);
     }
 
     // Methods
 
-    public void incrementa(){
+    public int[] ajustaIncrement(int hora, int minut, int segon){
+        if (segon == 60){
 
+            if (minut == 59){
+
+                if (hora == 24){
+                    hora = 0;
+                    minut = 00;
+                    segon = 00;
+
+                } else {
+                    hora += 1;
+                    minut = 00;
+                    segon = 00;
+                }
+
+            } else {
+                minut += 1;
+                segon = 00;
+            }
+
+        } else {
+            segon += 1;
+        }
+
+        int[] horaX = {hora, minut, segon};
+
+        return horaX;
     }
 
+    public int[] ajustaDecrement(int hora, int minut, int segon){
+        if (segon < 1){
+
+            if (minut < 1){
+
+                if (hora < 1){
+                    hora = 23;
+                    minut = 59;
+                    segon = 59;
+
+                } else {
+                    hora -= 1;
+                    minut = 59;
+                    segon = 59;
+                }
+
+            } else {
+                minut -= 1;
+                segon = 59;
+            }
+
+        } else {
+            segon -= 1;
+        }
+
+        int[] horaX = {hora, minut, segon};
+
+        return horaX;
+    }
+
+    public void incrementa(){
+        int[] horaX = ajustaIncrement(this.hora, this.minut, this.segon+1);
+        
+        setHora(horaX[0]);
+        setMinut(horaX[1]);
+        setSegon(horaX[2]);
+    }
+
+    public void decrementa(){
+        int[] horaX = ajustaDecrement(this.hora, this.minut, this.segon-1);
+        
+        setHora(horaX[0]);
+        setMinut(horaX[1]);
+        setSegon(horaX[2]);
+    }
 
     public void seguent(int hora){
         
     }
 
 
-    public void decrementa(){
-
-    }
-
-
     public static void main(String[] args) {
-        
-    }
 
-    
+        // Instancies
+        Hora horaMati = new Hora(8, 2, 7);
+        Hora horaTarda = new Hora(17, 59, 59);
+        Hora horaNoche = new Hora(23, 59, 59);
+        Hora horaPerDefecte = new Hora();
+
+        System.out.println(horaTarda.toString("L'hora de la tarda es: "));
+
+        System.out.println("------------------");
+
+        horaTarda.incrementa();
+
+        System.out.println(horaTarda.toString("L'hora de la tarda es: "));
+
+        horaTarda.decrementa();
+
+        System.out.println(horaTarda.toString("L'hora de la tarda es: "));
+
+
+    }
 } 
 

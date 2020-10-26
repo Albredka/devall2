@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess number</title>
+
+    <script>
+
+        function guessNumber(){
+
+            var rnd = Math.floor(Math.random()*100) + 1;
+            console.log("rnd = "+rnd);
+
+            var found = false;
+            var intents = 0;
+           while (!found){
+
+                num = prompt("Endevina el numero que he pensat: ");
+                console.log("num = "+num);
+
+                if (parseInt(num)== 0){
+                    alert("GAME IS OVER");
+                    return;
+                }
+                
+                if (parseInt(num) > parseInt(rnd)){
+                    console.log("Mes petit")
+                    alert("No, es mes petit que "+num);
+                } else if (parseInt(num) < parseInt(rnd)) {
+                    console.log("Mes gran")
+                    alert("No, es mes gran que "+num);
+                } else { // num == rnd
+                    found = true;
+                }
+
+                intents++;
+            }
+            document.write("Exacte, ho has encertat en "+intents+" intents, era el numero "+rnd);
+
+        }
+    </script>
+</head>
+<body onload="guessNumber()">
+
+</body>
+</html>

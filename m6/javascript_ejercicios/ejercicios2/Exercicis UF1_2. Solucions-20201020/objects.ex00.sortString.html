@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort and reverse String</title>
+
+    <script>
+
+        function sortString(str){
+
+            var strArr = str.toString().split("");
+            var res = strArr.sort().join("");
+
+            return res;
+        }
+
+
+        function reverseString(str){
+
+            var strArr = str.toString().split("");
+            var res = strArr.reverse().join("");
+
+            return res;
+        }
+
+        function sortAndReverseString(){
+
+            var str = prompt("Introduiu un string:", "2401");
+
+            var sortedStr = sortString(str);
+            var reversedStr = reverseString(sortedStr);
+
+            document.write("Original string:  "+str)
+            document.write("<br>Sorted string:  "+sortedStr)
+            document.write("<br>Sorted reversed string:  "+reversedStr)
+
+    }
+    </script>
+</head>
+<body onload="sortAndReverseString()">
+
+</body>
+</html>

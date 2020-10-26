@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split extensio</title>
+
+    <script>
+
+        function getExtensio(){
+
+            var nom = prompt("Nom d'arxiu", "arxiu.txt");
+
+            console.log("nom = "+nom);
+
+            var tokens = nom.split(".");
+
+            document.write("La extensio es: "+tokens[1]);
+    }
+    </script>
+</head>
+<body onload="getExtensio()">
+
+</body>
+</html>
