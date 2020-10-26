@@ -1,3 +1,4 @@
+package prueba4;
 
 public class Hora implements Comparable <Hora> {
     
@@ -71,7 +72,7 @@ public class Hora implements Comparable <Hora> {
 
     // Overloads
 
-    @overload
+   
     public static String toString(String inicial) {
         return "{" + inicial + 
             " hora= " + hora +
@@ -80,8 +81,7 @@ public class Hora implements Comparable <Hora> {
             "}";
     }
 
-    @Overload
-    public void decrementa(int){
+    public void decrementa(int hora){
 
     }
 
@@ -92,8 +92,8 @@ public class Hora implements Comparable <Hora> {
     }
 
 
-    public void seguent(int){
-        return 0;
+    public void seguent(int hora){
+        
     }
 
 
@@ -107,5 +107,5 @@ public class Hora implements Comparable <Hora> {
     }
 
     
-}
+} 
 
