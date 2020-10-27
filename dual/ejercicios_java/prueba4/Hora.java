@@ -19,9 +19,15 @@ public class Hora implements Comparable <Hora> {
 
     public Hora(final int hora, final int minut, final int segon) {
 
+        
         this.hora = hora;
         this.minut = minut;
         this.segon = segon;
+        
+
+        this.hora = this.hora > 59 || this.hora < 0 ? 0 : this.hora;
+        this.minut = this.minut > 59 || this.minut < 0 ? 0 : this.minut;
+        this.segon = this.segon > 59 || this.segon < 0 ? 0 : this.segon;
 
     }
 
@@ -68,9 +74,39 @@ public class Hora implements Comparable <Hora> {
     }
 
     @Override
-    public int compareTo(Hora arg0) {
-        
-        return 0;
+    public int compareTo(Hora horaX) {
+        // int compareTo(Hora): compara amb l'hora indicada i retorna <0 si és menor que la indicada, 0 si són iguals i >0 si és més gran que la indicada.
+
+        if (this.hora < horaX.hora){
+            return -1;
+
+
+        } else if(this.hora == horaX.hora){
+
+            if (this.minut < horaX.minut){
+                return -1;
+
+            } else if(this.minut == horaX.minut){
+
+                if (this.segon < horaX.segon){
+                    return -1;
+
+                } else if(this.segon == horaX.segon){
+                    return 0;
+                    
+                } else{
+                    return 1;
+                }
+
+            } else {
+                return 1;
+            }
+
+
+        } else {
+            return 1;
+        }
+
     }
 
     // Overloads
@@ -169,18 +205,24 @@ public class Hora implements Comparable <Hora> {
         setSegon(horaX[2]);
     }
 
-    public void seguent(int hora){
+    public void seguent(int segons){
+        int[] horaX = ajustaIncrement(this.hora, this.minut, this.segon+segons-1);
         
+        setHora(horaX[0]);
+        setMinut(horaX[1]);
+        setSegon(horaX[2]);
     }
 
 
     public static void main(String[] args) {
 
         // Instancies
-        Hora horaMati = new Hora(8, 2, 7);
+        Hora horaMati = new Hora(7, 23, 40);
         Hora horaTarda = new Hora(17, 59, 59);
         Hora horaNoche = new Hora(23, 59, 59);
         Hora horaPerDefecte = new Hora();
+
+        Hora horaDefectuosa = new Hora(7, 70, 90);
 
         System.out.println(horaTarda.toString("L'hora de la tarda es: "));
 
@@ -198,7 +240,16 @@ public class Hora implements Comparable <Hora> {
 
         System.out.println(horaTarda.toString("L'hora de la tarda es: "));
 
-        System.out.println(horaPerDefecte.toString());
+        horaTarda.decrementa(40);
+
+
+        System.out.println(horaMati.toString());
+        System.out.println(horaTarda.toString());
+
+        System.out.println(horaTarda.compareTo(horaMati));
+
+        System.out.println(horaDefectuosa.toString());
+
 
     }
 } 
