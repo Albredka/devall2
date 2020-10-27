@@ -12,8 +12,8 @@ public class Hora implements Comparable <Hora> {
     public Hora() {
 
         hora = 0;
-        minut = 00;
-        segon = 00;
+        minut = 0;
+        segon = 0;
 
     }
 
@@ -84,7 +84,7 @@ public class Hora implements Comparable <Hora> {
     }
 
     public void decrementa(int segons){
-        int[] horaX = ajustaDecrement(this.hora, this.minut, this.segon-segons);
+        int[] horaX = ajustaDecrement(this.hora, this.minut, this.segon-segons+1);
         
         setHora(horaX[0]);
         setMinut(horaX[1]);
@@ -194,6 +194,11 @@ public class Hora implements Comparable <Hora> {
 
         System.out.println(horaTarda.toString("L'hora de la tarda es: "));
 
+        horaTarda.decrementa(41);
+
+        System.out.println(horaTarda.toString("L'hora de la tarda es: "));
+
+        System.out.println(horaPerDefecte.toString());
 
     }
 } 
