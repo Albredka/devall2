@@ -1,21 +1,32 @@
 
 public class Persona {
     
-    static String nom;
-    static String cognom1;
-    static String cognom2;
-    static int anyNaixement;
-    static int anyDefunció;
+    private String nom;
+    private String cognom1;
+    private String cognom2;
+    private int edat;
+    private int anyNaixement;
+    private int anyDefunció;
 
-    public Persona() {
+    public Persona(String nom,  String cognom1, String cognom2, int anyNaixement){
+        this.edat = getAnyActual() - anyNaixement;
+        if(edatValida(edat) == false){
+            this.anyDefunció = getAnyActual();
+        }
+        this.nom = nom;
+        this.cognom1 = cognom1;
+        this.cognom2 = cognom2;
+        this.anyNaixement = 2020 - anyNaixement > 0 ? anyNaixement : 2020; // l'any de naixement haurà de ser sempre un enter positiu
+        this.anyDefunció = -1;
     }
 
     public Persona(String nom, String cognom1, String cognom2, int anyNaixement, int anyDefunció) {
         this.nom = nom;
+        this.edat = anyDefunció - anyNaixement;
         this.cognom1 = cognom1;
         this.cognom2 = cognom2;
-        this.anyNaixement = anyNaixement;
-        this.anyDefunció = anyDefunció;
+        this.anyNaixement = 2020 - anyNaixement > 0 ? anyNaixement : 2020; // l'any de naixement haurà de ser sempre un enter positiu
+        this.anyDefunció = anyDefunció > anyNaixement ? anyDefunció : anyNaixement;                                   
     }
 
     public String getNom() {
@@ -46,6 +57,14 @@ public class Persona {
         return this.anyNaixement;
     }
 
+    public static int getAnyActual(){
+        return java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
+    }
+
+    public int getEdat(){
+        return this.edat;
+    }
+
     public void setAnyNaixement(int anyNaixement) {
         this.anyNaixement = anyNaixement;
     }
@@ -56,6 +75,16 @@ public class Persona {
 
     public void setAnyDefunció(int anyDefunció) {
         this.anyDefunció = anyDefunció;
+    }
+
+    public void setViu(int anyDefunció){
+        this.anyDefunció = -1;
+    }
+
+    public void setEdat(int edat){
+        if (edatValida(edat)){
+            this.edat = edat;
+        }
     }
 
     public Persona nom(String nom) {
@@ -83,21 +112,10 @@ public class Persona {
         return this;
     }
 
-    // @Override
-    // public boolean equals(Object o) {
-    //     if (o == this)
-    //         return true;
-    //     if (!(o instanceof Persona)) {
-    //         return false;
-    //     }
-    //     Persona persona = (Persona) o;
-    //     return Objects.equals(nom, persona.nom) && Objects.equals(cognom1, persona.cognom1) && Objects.equals(cognom2, persona.cognom2) && anyNaixement == persona.anyNaixement && anyDefunció == persona.anyDefunció;
-    // }
+    public boolean edatValida(int edat){
+        return edat >= 1 && edat <= 120 ? true : false;
+    }
 
-    // @Override
-    // public int hashCode() {
-    //     return Objects.hash(nom, cognom1, cognom2, anyNaixement, anyDefunció);
-    // }
 
     @Override
     public String toString() {
@@ -105,15 +123,21 @@ public class Persona {
             " nom='" + getNom() + "'" +
             ", cognom1='" + getCognom1() + "'" +
             ", cognom2='" + getCognom2() + "'" +
+            ", edat= '" + getEdat() + "'" +
             ", anyNaixement='" + getAnyNaixement() + "'" +
             ", anyDefunció='" + getAnyDefunció() + "'" +
             "}";
     }
 
     public static void main(String[] args) {
+
         Persona persona1 = new Persona("Dani", "Torres", "Fernandez", 1993, 2023);
+        Persona persona2 = new Persona("Dani", "Marmol", "Fernandez", 1993);
+        Persona persona3 = new Persona("Albert", "Campos", "Gisbert", 2000);
 
         System.out.println(persona1.toString());
-    }
+        System.out.println(persona2.toString());
+        System.out.println(persona3.toString());
 
+    }
 }

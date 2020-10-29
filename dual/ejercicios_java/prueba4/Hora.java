@@ -19,16 +19,15 @@ public class Hora implements Comparable <Hora> {
 
     public Hora(final int hora, final int minut, final int segon) {
 
-        
-        this.hora = hora;
-        this.minut = minut;
-        this.segon = segon;
-        
-
-        this.hora = this.hora > 59 || this.hora < 0 ? 0 : this.hora;
-        this.minut = this.minut > 59 || this.minut < 0 ? 0 : this.minut;
-        this.segon = this.segon > 59 || this.segon < 0 ? 0 : this.segon;
-
+        if (esValida(hora, minut, segon) == false){
+            this.hora = 0;
+            this.minut = 0;
+            this.segon = 0;
+        } else {
+            this.hora = hora;
+            this.minut = minut;
+            this.segon = segon;
+        }
     }
 
 
@@ -49,15 +48,15 @@ public class Hora implements Comparable <Hora> {
 
     // Setters 
 
-    public void setHora(int hora){
+    public void setHora(final int hora){
         this.hora = hora;
     }
 
-    public void setMinut(int minut){
+    public void setMinut(final int minut){
         this.minut = minut;
     }
 
-    public void setSegon(int segon){
+    public void setSegon(final int segon){
         this.segon = segon;
     }
 
@@ -74,7 +73,7 @@ public class Hora implements Comparable <Hora> {
     }
 
     @Override
-    public int compareTo(Hora horaX) {
+    public int compareTo(final Hora horaX) {
         // int compareTo(Hora): compara amb l'hora indicada i retorna <0 si és menor que la indicada, 0 si són iguals i >0 si és més gran que la indicada.
 
         if (this.hora < horaX.hora){
@@ -112,14 +111,14 @@ public class Hora implements Comparable <Hora> {
     // Overloads
 
    
-    public String toString(String inicial) {
+    public String toString(final String inicial) {
 
         String missatge = String.format("'%d:%02d:%02d%n'", hora, minut, segon);
         
         return missatge;
     }
 
-    public void decrementa(int segons){
+    public void decrementa(final int segons){
         int[] horaX = ajustaDecrement(this.hora, this.minut, this.segon-segons+1);
         
         setHora(horaX[0]);
@@ -127,9 +126,10 @@ public class Hora implements Comparable <Hora> {
         setSegon(horaX[2]);
     }
 
+
     // Methods
 
-    public int[] ajustaIncrement(int hora, int minut, int segon){
+    public int[] ajustaIncrement(final int hora, final int minut, final int segon){
         if (segon == 60){
 
             if (minut == 59){
@@ -159,7 +159,7 @@ public class Hora implements Comparable <Hora> {
         return horaX;
     }
 
-    public int[] ajustaDecrement(int hora, int minut, int segon){
+    public int[] ajustaDecrement(final int hora, final int minut, final int segon){
         if (segon < 1){
 
             if (minut < 1){
@@ -205,7 +205,7 @@ public class Hora implements Comparable <Hora> {
         setSegon(horaX[2]);
     }
 
-    public void seguent(int segons){
+    public void seguent(final int segons){
         int[] horaX = ajustaIncrement(this.hora, this.minut, this.segon+segons-1);
         
         setHora(horaX[0]);
@@ -213,6 +213,60 @@ public class Hora implements Comparable <Hora> {
         setSegon(horaX[2]);
     }
 
+    //@Override
+    public static int compareTo(final Hora hora1, final Hora hora2) {
+        // int compareTo(Hora): compara amb l'hora indicada i retorna <0 si és menor que la indicada, 0 si són iguals i >0 si és més gran que la indicada.
+
+        if (hora1.hora < hora2.hora){
+            return -1;
+
+
+        } else if(hora1.hora == hora2.hora){
+
+            if (hora1.minut < hora2.minut){
+                return -1;
+
+            } else if(hora1.minut == hora2.minut){
+
+                if (hora1.segon < hora2.segon){
+                    return -1;
+
+                } else if(hora1.segon == hora2.segon){
+                    return 0;
+                    
+                } else{
+                    return 1;
+                }
+
+            } else {
+                return 1;
+            }
+
+
+        } else {
+            return 1;
+        }
+
+    }
+    
+    public static boolean esValida(final int hora, final int minut, final int segon){
+
+        if (hora < 24 && hora >= 0){
+            if (minut < 60 && minut >= 0){
+                if (segon < 60 && segon >= 0){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+
+    }
+
+    public static Hora duplica(final Hora horaX){
+        Hora hora;
+        return hora = new Hora(horaX.hora, horaX.minut, horaX.segon);
+    }
 
     public static void main(String[] args) {
 
