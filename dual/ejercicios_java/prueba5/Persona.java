@@ -132,7 +132,7 @@ public class Persona {
     public static void main(String[] args) {
 
         Persona persona1 = new Persona("Dani", "Torres", "Fernandez", 1993, 2023);
-        Persona persona2 = new Persona("Dani", "Marmol", "Fernandez", 1993);
+        Persona persona2 = new Persona("Dani", "Marmol", "Fernandez", 1992);
         Persona persona3 = new Persona("Albert", "Campos", "Gisbert", 2000);
 
         System.out.println(persona1.toString());
