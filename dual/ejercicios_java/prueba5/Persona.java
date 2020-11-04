@@ -116,7 +116,6 @@ public class Persona {
         return edat >= 1 && edat <= 120 ? true : false;
     }
 
-
     @Override
     public String toString() {
         return "{" +
@@ -141,3 +140,6 @@ public class Persona {
 
     }
 }
+
+
+
