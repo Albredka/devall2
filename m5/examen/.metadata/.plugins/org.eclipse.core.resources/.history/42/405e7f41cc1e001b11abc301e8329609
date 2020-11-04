@@ -1,0 +1,12 @@
+package examen;
+
+public class ProductosEnStock extends Producto {
+
+	private inr unidadesEnStock;
+	
+	public ProductosEnStock(String id, String nombre, String fabricante, double precioUnidadEU, int unidadesEnStock) {
+		super(id, nombre, fabricante, precioUnidadEU);
+		this.unidadesEnStock = unidadesEnStock;
+	}
+
+}

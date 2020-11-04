@@ -1,0 +1,8 @@
+package examen;
+
+import java.util.List;
+
+public class Almacen {
+	private List <ProductosEnStock> listaProductos;
+	
+}

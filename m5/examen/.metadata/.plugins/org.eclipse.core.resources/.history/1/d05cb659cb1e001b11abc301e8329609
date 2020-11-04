@@ -1,0 +1,11 @@
+package examen;
+
+public class Producto {
+	protected String id;
+	protected String nombre;
+	protected String fabricante;
+	protected double precioUnidadEU;
+	
+	
+
+}

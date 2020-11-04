@@ -1,0 +1,16 @@
+package examen;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Seccion {
+	private String id;
+	private List<ProductosEnStock> listaProductosEnStock;
+	
+	public Seccion(String id) {
+		this.id = id;
+		this.listaProductosEnStock = new ArrayList<ProductosEnStock>();
+	}
+	
+	
+}

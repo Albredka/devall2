@@ -1,0 +1,8 @@
+package examen;
+
+public class Seccion {
+	private String id;
+	private List<ProductosEnStock> listaProductosEnStock;
+	
+	
+}

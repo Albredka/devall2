@@ -1,0 +1,12 @@
+package examen;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Almacen {
+	private List <ProductosEnStock> listaProductosEnStock;
+	
+	public Almacen() {
+		listaProductosEnStock = new ArrayList<ProductosEnStock>();
+	}
+}
