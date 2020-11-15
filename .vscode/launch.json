@@ -4,13 +4,25 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
+        {
+            "name": "Launch localhost",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost/mypage.html",
+            "webRoot": "${workspaceFolder}/wwwroot"
+        },
+        {
+            "name": "Launch js",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/chess/src/main/webapp/board.html"
+        },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - Porres",
+            "name": "CodeLens (Launch) - AppTest",
             "request": "launch",
-            "mainClass": "Porres",
-            "projectName": "devall2_e14f1aa5"
+            "mainClass": "AppTest",
+            "projectName": "chess"
         },
         {
             "type": "java",
@@ -18,11 +30,6 @@
             "request": "launch",
             "mainClass": "${file}"
         },
-        {
-            "type": "javascript",
-            "name": "Debug (Launch) - Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        }
+        
     ]
 }
