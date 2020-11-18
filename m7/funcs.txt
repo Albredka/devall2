@@ -1,0 +1,11 @@
+
+- Variables locales se tienen que declarar para usarlas
+
+var_dump
+isset
+strval
+intval
+floatval
+(int) $var
+(float) $var
+(string) $var
