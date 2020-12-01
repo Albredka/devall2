@@ -16,57 +16,80 @@ $( document ).ready(function() {
 		}
 	});
 
-	document.getElementById("orderAsc").addEventListener("click", function(){	//boton de la lista movies asc + printar
+	document.getElementById("orderAsc").addEventListener("click", function(){	
+		// ASC button + print
 		orderList(movies, "asc");
 		printList(movies);
 	});
-	document.getElementById("orderDesc").addEventListener("click", function(){	//boton de la lista movies dsc + printar
+
+	document.getElementById("orderDesc").addEventListener("click", function(){	
+		// DESC button + print
 		orderList(movies, "desc");
 		printList(movies);
 	});
-	document.getElementById("calcMitjana").addEventListener("click", function(){ //calculo de la puntuacion media.
-		calcMitjana(movies)
+
+	document.getElementById("average").addEventListener("click", function(){ 
+		// Average rating button .
+		average(movies)
 	});
+
+	const reload = document.getElementById('reload');
+
+	reload.addEventListener('click', _ => { 
+		// the underscore means there any parameters.
+    	location.reload();
+	});
+
 	printList(movies);
+	
 });
+
+// -------------------- Functions -------------------- 
 
 // Ordenarà les pelicules en ordre ascendent o descendent segons el parametre que rebi.
 
 function orderList(movies, orderType){
 	if (orderType.toLowerCase() == "asc"){
+		alert("asc");
 		return movies.sort();
+		
 	}
 	if (orderType.toLowerCase() == "desc"){
+		alert("desc");
 		return movies.reverse();
+		
 	}
-	return movies;
 }
 
-// 
+
 
 function filterLetter(movies, filterLetter){
+
+	function filterMovie(movie, filterLetter){
+		let title = movie[0];
 	
-	function filterMovie(movie){
-		if (movie[0].toLowerCase()== letter.toLowerCase()){
+		if(title[0].toLowerCase() === filterLetter.toLowerCase()){
 			return true;
 		}
 	}
+	
 	return movies.filter(filterMovie);
 }
 
-// Servirà per poder fer la busqueda de qualsevol pelicula segons el seu index dins l'array de movies. 
+// It will search for each movie on the array movies with the parameter {movie}.
+
 
 function searchList(movies, movie){
 	return movies.indexOf(movie);
 }
 
-// Creara les plantilles de les linees, les cuals seran tantes com pelicules hi haguin en el movies.json
+// This function will create all the html tags and theyre respective classes to form de table and every row for each movie.
 
 function printList(movies){
 	var tabla = 
 	` <table class="tabla">
 	<thead>
-	<tr class="columnas">
+	<tr class="columns">
 		<th scope="col" class="num">Number</th>
 		<th scope="col" class="title">Title</th>
 		<th scope="col" class="image">Image</th>
@@ -82,21 +105,21 @@ function printList(movies){
 			<td class="title">`+ movies[i][0] + `</td>
 			<td class="image"><img src="`+ movies[i][2] + `"/></td>
 			<td class="rating">`+ movies[i][3] + `</td>
-		 </tr>` // 1: nombre; 0: titul; 2: imatges; 3: rating
+		 </tr>` // 1: name; 0: title; 2: images; 3: rating
 	}
 	
 	tabla += `</tbody>
 			  </table> `;
 
-	document.getElementById("tabla").innerHTML = tabla;	// Etiqueta en laa que es guardara el conjunt de rows
+	document.getElementById("tabla").innerHTML = tabla;	// const that will save the all the tags created below.
 
 }
 
-function calcMitjana(movies){
+function average(movies){
 
 	var total = 0;
 	for (var i=0; i<movies.length; i++){
-		total += movies[i][3]; // Representa el rating
+		total += movies[i][3]; // Rating
 	}
-	document.getElementById("mitjana").innerHTML = (total/movies.length).toFixed(2); // Guarda la xifra del calcul de la mitjana en una etiqueta de text
+	document.getElementById("average").innerHTML = (total/movies.length).toFixed(2); // Contains the average of the movies rating.
 }

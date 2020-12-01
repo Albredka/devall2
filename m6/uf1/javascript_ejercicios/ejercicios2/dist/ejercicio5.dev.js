@@ -4,6 +4,7 @@
 Pista: toLocaleUpperCase, toLocaleLowerCase, length, substring, match...
  */
 var text = prompt();
+var vocals = "";
 var textMajuscules = text.toUpperCase();
 console.log(textMajuscules);
 var textMinuscules = text.toLowerCase();
@@ -16,3 +17,11 @@ function comptaParaules(str) {
 }
 
 console.log(comptaParaules(text));
+vocals = text.match(/[aeiouAEIOU]/g);
+vocals = vocals.length;
+console.log(vocals);
+
+for (var i = 0; i < text.length; i++) {
+  var textFinal = text.substr(i, text.length);
+  console.log(textFinal);
+}

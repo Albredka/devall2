@@ -5,6 +5,8 @@ Pista: toLocaleUpperCase, toLocaleLowerCase, length, substring, match...
 
  var text = prompt();
 
+ var vocals = "";
+
  var textMajuscules = text.toUpperCase();
  console.log(textMajuscules);
 
@@ -20,5 +22,23 @@ Pista: toLocaleUpperCase, toLocaleLowerCase, length, substring, match...
   }
   
   console.log(comptaParaules(text));
+
+  vocals = text.match(/[aeiouAEIOU]/g);
+  vocals = vocals.length;
+
+  console.log(vocals);
+
+  for(let i=0; i<text.length; i++){
+
+    var textFinal = text.substr(i,text.length);
+
+    console.log(textFinal);
+  }
+
+
+
+
+
+
 
   

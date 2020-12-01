@@ -1,5 +1,5 @@
-
 <!doctype html>
+
 <html lang="en">
     <head>
 
@@ -16,6 +16,8 @@
 
         <!-- Functions JS import -->
         <script src="./js/functions.js"></script> 
+
+        <!-- CSS in file -->
         
         <style>
             tr:nth-child(even) { 
@@ -44,38 +46,47 @@
                 color: rgba(165, 19, 19, 0.808);
             }
 
-            #mitjana{
-                padding: 0px;
-                margin-top: 0px;
-                margin-bottom: 0px;
+            #average{
+                padding: 1px;
             }
         </style>
-        
-
     </head>
 
+    <!-- Main tags -->
+
     <body>
-        <div class="columnas" style="background-color: aliceblue;">
+        <div class="columns" style="background-color: aliceblue;">
+
+            <!-- Reload button -->
+            <button id="reload" type="button" class="btn btn-dark" style="margin-left: 40px;" >
+                Reload
+            </button>
+
+            <!-- ASC button -->
             <button id="orderAsc" type="button" class="btn btn-danger" style="margin-left: 40px;" >
                 A-Z
             </button>
+
+            <!-- DESC button -->
             <button id="orderDesc" type="button" class="btn btn-warning" style="margin-left: 40px;">
                 Z-A
             </button>
-            <button id="calcMitjana" type="button" class="btn btn-outline-primary btn-sm" style="margin-left: 40px;">
-                <p id="mitjana">mitjana</p>
+
+            <!-- Average button -->
+            <button id="average" type="button" class="btn btn-outline-primary btn-sm" style="margin-left: 40px;">
+                <p id="average">average</p>
             </button>
         </div>
 
+        <!-- Table inizialization -->
+        <div id="tabla" style="padding: 10px;"></div>
 
-        <div id="tabla" style="padding: 10px;">
-
-        </div>
+        <!-- Bootstrap scripts -->
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </body>
 
+    </body>
 </html>
