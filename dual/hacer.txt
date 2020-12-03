@@ -1,4 +1,0 @@
-
-- Programación POO
-
-- Proyecto ajedrez

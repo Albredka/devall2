@@ -11,7 +11,9 @@ $( document ).ready(function() {
 		var moviesData = data.movies;
 		var movie;
 		for (var i = 0; i < moviesData.length; i++){
-			console.log(moviesData[i].title);
+			//console.log(moviesData[i].title);
+			//movies.push(moviesData[i].title);
+			
 			movies.push([moviesData[i].title, i+1, moviesData[i].url , moviesData[i].rating]);
 		}
 	});
@@ -42,11 +44,37 @@ $( document ).ready(function() {
 
 	printList(movies);
 	
+	
+	
+	// letter call
+	console.log("filtrades");
+	var resultat = letter(movies, "T");
+	
+	// Example of the function "letter"
+	for(let i=0; i<resultat.length;i++){
+		console.log(resultat[i][0]);
+	}
+
 });
 
 // -------------------- Functions -------------------- 
 
-// Ordenarà les pelicules en ordre ascendent o descendent segons el parametre que rebi.
+
+//
+
+function letter(movies, letter){
+	var results = [];
+	for(let i=0; i<movies.length;i++){
+		if(movies[i][0][0]==letter){
+			results.push(movies[i]);
+		}
+		
+	}
+	return results;
+
+}
+
+// It will sort the array of movies depending on the parameter recieved (ASC or DESC).
 
 function orderList(movies, orderType){
 	if (orderType.toLowerCase() == "asc"){
@@ -63,18 +91,7 @@ function orderList(movies, orderType){
 
 
 
-function filterLetter(movies, filterLetter){
 
-	function filterMovie(movie, filterLetter){
-		let title = movie[0];
-	
-		if(title[0].toLowerCase() === filterLetter.toLowerCase()){
-			return true;
-		}
-	}
-	
-	return movies.filter(filterMovie);
-}
 
 // It will search for each movie on the array movies with the parameter {movie}.
 
@@ -123,3 +140,4 @@ function average(movies){
 	}
 	document.getElementById("average").innerHTML = (total/movies.length).toFixed(2); // Contains the average of the movies rating.
 }
+

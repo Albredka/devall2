@@ -14,9 +14,11 @@
 
             document.write("Avui és "+now.getDate()+" del "+(now.getMonth()+1)+" de "+now.getFullYear());
 
+            console.log("----------------------");
             var oneDayMilis = 24 * 60 * 60 * 1000; // One day in miliseconds
             var end2019 = new Date(2019, 12, 31);
 
+            console.log(Math.round((now - end2019)));
             var daysIn2020 = Math.round((now - end2019) / oneDayMilis);
             console.log("daysIn2020 = "+ daysIn2020);
             var weeksIn2020 = Math.round(daysIn2020 / 7);

@@ -2,7 +2,9 @@
 
 
 var palabra = prompt();
-palabra = palabra.match(/[aeiou]/g)
+palabra = palabra.matchAll(/[aeiou]/g)
+
+console.log(palabra);
 
 if(palabra.length >= 5){
     console.log("Es una paraula pentavolica");
